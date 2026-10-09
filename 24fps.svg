@@ -1,0 +1,347 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 420" width="100%" height="100%">
+  <defs>
+    <!-- Gruvbox / Dark Cyber Theme Gradients -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1d2021"/>
+      <stop offset="50%" stop-color="#282828"/>
+      <stop offset="100%" stop-color="#1d2021"/>
+    </linearGradient>
+
+    <linearGradient id="gold-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fabd2f"/>
+      <stop offset="50%" stop-color="#fe8019"/>
+      <stop offset="100%" stop-color="#fabd2f"/>
+    </linearGradient>
+
+    <linearGradient id="glass-card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#32302f" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#282828" stop-opacity="0.95"/>
+    </linearGradient>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="intense-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur2"/>
+      <feComposite in="SourceGraphic" in2="blur2" operator="over"/>
+    </filter>
+  </defs>
+
+  <style><![CDATA[
+    .mono { font-family: 'Fira Code', 'Courier New', monospace; }
+    .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.7; filter: drop-shadow(0 0 4px #fabd2f); }
+      50% { opacity: 1; filter: drop-shadow(0 0 12px #fe8019); }
+    }
+
+    @keyframes stroboscopicMotion {
+      0% { transform: translate(60px, 0); }
+      4.16% { transform: translate(84px, -6px); }
+      8.33% { transform: translate(108px, 4px); }
+      12.5% { transform: translate(132px, -8px); }
+      16.67% { transform: translate(156px, 6px); }
+      20.83% { transform: translate(180px, -4px); }
+      25.0% { transform: translate(204px, 8px); }
+      29.16% { transform: translate(228px, -6px); }
+      33.33% { transform: translate(252px, 4px); }
+      37.5% { transform: translate(276px, -8px); }
+      41.67% { transform: translate(300px, 6px); }
+      45.83% { transform: translate(324px, -4px); }
+      50.0% { transform: translate(348px, 8px); }
+      54.16% { transform: translate(372px, -6px); }
+      58.33% { transform: translate(396px, 4px); }
+      62.5% { transform: translate(420px, -8px); }
+      66.67% { transform: translate(444px, 6px); }
+      70.83% { transform: translate(468px, -4px); }
+      75.0% { transform: translate(492px, 8px); }
+      79.16% { transform: translate(516px, -6px); }
+      83.33% { transform: translate(540px, 4px); }
+      87.5% { transform: translate(564px, -8px); }
+      91.67% { transform: translate(588px, 6px); }
+      95.83% { transform: translate(612px, -2px); }
+      100% { transform: translate(636px, 0); }
+    }
+
+    .shutter-indicator {
+      animation: pulseGlow 1.2s infinite ease-in-out;
+    }
+
+    .motion-entity {
+      animation: stroboscopicMotion 1s steps(1) infinite;
+    }
+  ]]></style>
+
+  <!-- Outer Canvas Terminal Card -->
+  <rect x="2" y="2" width="836" height="416" rx="12" fill="url(#bg-grad)" stroke="#665c54" stroke-width="1.5"/>
+
+  <!-- Viewfinder Tech Grid -->
+  <g stroke="#3c3836" stroke-width="0.75" opacity="0.6">
+    <line x1="40" y1="90" x2="800" y2="90"/>
+    <line x1="40" y1="350" x2="800" y2="350"/>
+    <line x1="40" y1="90" x2="40" y2="350"/>
+    <line x1="800" y1="90" x2="800" y2="350"/>
+    <line x1="420" y1="90" x2="420" y2="350" stroke-dasharray="4,4"/>
+    <line x1="40" y1="220" x2="800" y2="220" stroke-dasharray="4,4"/>
+  </g>
+
+  <!-- Viewfinder Corner Brackets -->
+  <g stroke="#fabd2f" stroke-width="2.5" fill="none">
+    <path d="M 30,105 L 30,80 L 55,80" />
+    <path d="M 810,105 L 810,80 L 785,80" />
+    <path d="M 30,335 L 30,360 L 55,360" />
+    <path d="M 810,335 L 810,360 L 785,360" />
+  </g>
+
+  <!-- Header Section -->
+  <g transform="translate(40, 48)">
+    <circle cx="6" cy="-4" r="5" fill="#fb4934">
+      <animate attributeName="opacity" values="1;0.4;1" dur="0.8s" repeatCount="indefinite"/>
+    </circle>
+    <text x="22" y="0" class="mono" font-size="12" font-weight="700" fill="#fabd2f" letter-spacing="1.5">
+      24 FPS PROJECTION SORCERY // &#25237;&#20225;&#21610;&#27861;
+    </text>
+    <text x="560" y="0" class="mono" font-size="11" fill="#8ec07c" text-anchor="end">
+      CLOCK: 41.67ms/FRAME
+    </text>
+    <text x="760" y="0" class="mono" font-size="11" fill="#ebdbb2" text-anchor="end">
+      SPEED: MACH 3
+    </text>
+  </g>
+
+  <!-- Main Viewport Box -->
+  <rect x="40" y="70" width="760" height="240" rx="8" fill="url(#glass-card)" stroke="#504945" stroke-width="1"/>
+
+  <!-- Glass Cels Depth Effect -->
+  <g stroke="#fabd2f" stroke-width="1" stroke-opacity="0.25" fill="#fabd2f" fill-opacity="0.03">
+    <polygon points="120,95 240,110 210,270 90,250" />
+    <polygon points="340,90 460,105 430,265 310,245" />
+    <polygon points="560,95 680,110 650,270 530,250" />
+  </g>
+
+  <!-- Live 24 FPS Stroboscopic Motion Entity -->
+  <g class="motion-entity">
+    <rect x="-35" y="145" width="70" height="90" rx="4" fill="#fe8019" fill-opacity="0.18" stroke="#fabd2f" stroke-width="1.8" filter="url(#glow)"/>
+    <line x1="-35" y1="165" x2="35" y2="165" stroke="#fabd2f" stroke-width="0.8" opacity="0.6"/>
+    <line x1="-35" y1="215" x2="35" y2="215" stroke="#fabd2f" stroke-width="0.8" opacity="0.6"/>
+    
+    <path d="M -16,190 L 0,162 L 16,190 L 5,184 L 0,212 L -5,184 Z" fill="#ebdbb2" stroke="#fabd2f" stroke-width="1.2"/>
+    <circle cx="0" cy="182" r="3" fill="#fb4934" filter="url(#glow)"/>
+
+    <text x="0" y="230" class="mono" font-size="9" font-weight="700" fill="#fabd2f" text-anchor="middle" letter-spacing="1">
+      24 FPS
+    </text>
+  </g>
+
+  <!-- Motion Vectors -->
+  <g stroke="#fe8019" stroke-width="1.5" opacity="0.4" stroke-dasharray="12,12">
+    <line x1="80" y1="180" x2="760" y2="180" />
+    <line x1="80" y1="200" x2="760" y2="200" />
+  </g>
+
+  <!-- Central Title -->
+  <g transform="translate(420, 125)" text-anchor="middle">
+    <text class="sans" font-size="24" font-weight="800" fill="#fbf1c7" letter-spacing="3">
+      THE FRAMERR
+    </text>
+    <text y="22" class="mono" font-size="11" fill="#d5c4a1" letter-spacing="1.2">
+      PRE-RENDER THE TRAJECTORY &#8226; ZERO HESITATION
+    </text>
+  </g>
+
+  <!-- 24-Frame Timeline Strip -->
+  <g transform="translate(60, 275)">
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.000s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.000s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">01</text>
+    </g>
+    <g transform="translate(30, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.042s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.042s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">02</text>
+    </g>
+    <g transform="translate(60, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.083s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.083s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">03</text>
+    </g>
+    <g transform="translate(90, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.125s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.125s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">04</text>
+    </g>
+    <g transform="translate(120, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.167s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.167s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">05</text>
+    </g>
+    <g transform="translate(150, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.208s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.208s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">06</text>
+    </g>
+    <g transform="translate(180, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.250s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.250s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">07</text>
+    </g>
+    <g transform="translate(210, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.292s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.292s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">08</text>
+    </g>
+    <g transform="translate(240, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.333s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.333s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">09</text>
+    </g>
+    <g transform="translate(270, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.375s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.375s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">10</text>
+    </g>
+    <g transform="translate(300, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.417s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.417s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">11</text>
+    </g>
+    <g transform="translate(330, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.458s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.458s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">12</text>
+    </g>
+    <g transform="translate(360, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.500s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.500s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">13</text>
+    </g>
+    <g transform="translate(390, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.542s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.542s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">14</text>
+    </g>
+    <g transform="translate(420, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.583s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.583s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">15</text>
+    </g>
+    <g transform="translate(450, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.625s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.625s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">16</text>
+    </g>
+    <g transform="translate(480, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.667s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.667s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">17</text>
+    </g>
+    <g transform="translate(510, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.708s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.708s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">18</text>
+    </g>
+    <g transform="translate(540, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.750s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.750s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">19</text>
+    </g>
+    <g transform="translate(570, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.792s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.792s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">20</text>
+    </g>
+    <g transform="translate(600, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.833s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.833s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">21</text>
+    </g>
+    <g transform="translate(630, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.875s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.875s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">22</text>
+    </g>
+    <g transform="translate(660, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.917s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.917s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">23</text>
+    </g>
+    <g transform="translate(690, 0)">
+      <rect x="0" y="0" width="24" height="12" rx="2" fill="#3c3836" stroke="#504945" stroke-width="0.8">
+        <animate attributeName="fill" values="#3c3836;#fabd2f;#fe8019;#3c3836" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.958s" repeatCount="indefinite" />
+        <animate attributeName="stroke" values="#504945;#fabd2f;#fe8019;#504945" keyTimes="0;0.04;0.08;1" dur="1s" begin="0.958s" repeatCount="indefinite" />
+      </rect>
+      <text x="12" y="9" class="mono" font-size="7" fill="#a89984" text-anchor="middle" font-weight="600">24</text>
+    </g>
+  </g>
+
+  <!-- Bottom Terminal Metrics Bar -->
+  <g transform="translate(40, 345)">
+    <text x="0" y="0" class="mono" font-size="11" fill="#a89984">
+      FRAME CADENCE: <tspan fill="#fabd2f" font-weight="700">1/24s PER ITERATION</tspan>
+    </text>
+    <text x="380" y="0" class="mono" font-size="11" fill="#a89984" text-anchor="middle">
+      STATUS: <tspan fill="#8ec07c" font-weight="700">COMPOUNDING VELOCITY</tspan>
+    </text>
+    <text x="760" y="0" class="mono" font-size="11" fill="#a89984" text-anchor="end">
+      TARGET PENALTY: <tspan fill="#fb4934" font-weight="700">1-SECOND 2D FREEZE</tspan>
+    </text>
+  </g>
+
+  <!-- Footer Tagline -->
+  <g transform="translate(420, 392)" text-anchor="middle">
+    <text class="mono" font-size="10.5" fill="#d5c4a1" letter-spacing="0.5">
+      &#8220;Trace twenty-four frames of movement in advance. Execute without deviation.&#8221;
+    </text>
+  </g>
+
+</svg>
