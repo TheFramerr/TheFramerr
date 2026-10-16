@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" width="100%" height="100%">
+  <defs>
+    <!-- Strict Gruvbox Dark & Red Palette -->
+    <!-- #141617 (dark0_hard), #1d2021 (dark0), #282828 (dark0_normal), #3c3836 (dark1) -->
+    <!-- #9d0006 (red_dark), #cc241d (red_normal), #fb4934 (red_bright) -->
+
+    <radialGradient id="spaceDeep" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#141617" />
+      <stop offset="65%" stop-color="#1d2021" />
+      <stop offset="100%" stop-color="#282828" />
+    </radialGradient>
+
+    <!-- Throat Funnel Gradient -->
+    <linearGradient id="throatGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fb4934" stop-opacity="0.9" />
+      <stop offset="25%" stop-color="#cc241d" stop-opacity="0.4" />
+      <stop offset="50%" stop-color="#9d0006" stop-opacity="0.15" />
+      <stop offset="75%" stop-color="#cc241d" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#fb4934" stop-opacity="0.9" />
+    </linearGradient>
+
+    <!-- Mouth Radiance Gradient -->
+    <radialGradient id="mouthGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#141617" stop-opacity="0" />
+      <stop offset="50%" stop-color="#cc241d" stop-opacity="0.25" />
+      <stop offset="85%" stop-color="#fb4934" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#141617" stop-opacity="0" />
+    </radialGradient>
+
+    <style>
+      .mono {
+        font-family: 'JetBrains Mono', 'Fira Code', Menlo, Consolas, monospace;
+      }
+
+      /* Relativistic particle streams through the bridge throat */
+      .bridge-stream {
+        stroke-dasharray: 12 28;
+        animation: traverseFlow 2.8s linear infinite;
+      }
+
+      .bridge-stream-rev {
+        stroke-dasharray: 8 20;
+        animation: traverseFlowRev 2.2s linear infinite;
+      }
+
+      @keyframes traverseFlow {
+        0% { stroke-dashoffset: 200; }
+        100% { stroke-dashoffset: 0; }
+      }
+
+      @keyframes traverseFlowRev {
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: 200; }
+      }
+
+      /* Subtle breathing tension of the bridge throat */
+      .throat-pulse {
+        animation: throatWarp 4.8s ease-in-out infinite alternate;
+        transform-origin: 450px 220px;
+      }
+
+      @keyframes throatWarp {
+        0% { transform: scaleY(0.96) scaleX(0.99); }
+        100% { transform: scaleY(1.05) scaleX(1.01); }
+      }
+
+      /* Accretion rotation around the dual mouths */
+      .spin-mouth-left {
+        transform-origin: 170px 220px;
+        animation: spinCW 26s linear infinite;
+      }
+
+      .spin-mouth-right {
+        transform-origin: 730px 220px;
+        animation: spinCCW 26s linear infinite;
+      }
+
+      @keyframes spinCW {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+
+      @keyframes spinCCW {
+        from { transform: rotate(360deg); }
+        to { transform: rotate(0deg); }
+      }
+
+      /* Faint coordinate mesh shimmer */
+      .flicker-mesh {
+        animation: meshFade 3.5s ease-in-out infinite alternate;
+      }
+
+      @keyframes meshFade {
+        0% { opacity: 0.15; }
+        100% { opacity: 0.35; }
+      }
+    </style>
+  </defs>
+
+  <!-- Frame Background -->
+  <rect width="900" height="440" rx="14" fill="url(#spaceDeep)" stroke="#3c3836" stroke-width="1.8" />
+
+  <!-- ==================== SPHERICAL MOUTH RADIANCE ==================== -->
+  <ellipse cx="170" cy="220" rx="110" ry="140" fill="url(#mouthGlow)" />
+  <ellipse cx="730" cy="220" rx="110" ry="140" fill="url(#mouthGlow)" />
+
+  <!-- ==================== ACCRETION ORBITS (MOUTHS) ==================== -->
+  <g class="spin-mouth-left" opacity="0.6">
+    <ellipse cx="170" cy="220" rx="90" ry="130" fill="none" stroke="#cc241d" stroke-width="1.4" stroke-dasharray="80 50 110 40" />
+    <ellipse cx="170" cy="220" rx="72" ry="105" fill="none" stroke="#9d0006" stroke-width="2" stroke-dasharray="60 40" />
+    <ellipse cx="170" cy="220" rx="55" ry="80" fill="none" stroke="#fb4934" stroke-width="1" stroke-dasharray="30 60" opacity="0.5" />
+  </g>
+
+  <g class="spin-mouth-right" opacity="0.6">
+    <ellipse cx="730" cy="220" rx="90" ry="130" fill="none" stroke="#cc241d" stroke-width="1.4" stroke-dasharray="70 60 90 50" />
+    <ellipse cx="730" cy="220" rx="72" ry="105" fill="none" stroke="#9d0006" stroke-width="2" stroke-dasharray="50 50" />
+    <ellipse cx="730" cy="220" rx="55" ry="80" fill="none" stroke="#fb4934" stroke-width="1" stroke-dasharray="40 50" opacity="0.5" />
+  </g>
+
+  <!-- ==================== SPACETIME CURVATURE MESH ==================== -->
+  <g class="flicker-mesh" stroke="#9d0006" stroke-width="0.8" fill="none">
+    <!-- Longitudinal Grid Lines following the Throat -->
+    <path d="M 170 120 C 310 120, 360 185, 450 185 C 540 185, 590 120, 730 120" />
+    <path d="M 170 145 C 290 145, 370 195, 450 195 C 530 195, 610 145, 730 145" />
+    <path d="M 170 295 C 290 295, 370 245, 450 245 C 530 245, 610 295, 730 295" />
+    <path d="M 170 320 C 310 320, 360 255, 450 255 C 540 255, 590 320, 730 320" />
+  </g>
+
+  <!-- ==================== EINSTEIN-ROSEN THROAT (BRIDGE) ==================== -->
+  <g class="throat-pulse">
+    <!-- Outer Envelope Bounds (Upper & Lower Hyperbolic Funnel Walls) -->
+    <path d="M 170 95 C 290 95, 370 175, 450 175 C 530 175, 610 95, 730 95" fill="none" stroke="#cc241d" stroke-width="2" />
+    <path d="M 170 345 C 290 345, 370 265, 450 265 C 530 265, 610 345, 730 345" fill="none" stroke="#cc241d" stroke-width="2" />
+
+    <!-- Throat Volume Fill -->
+    <path d="M 170 95 C 290 95, 370 175, 450 175 C 530 175, 610 95, 730 95
+             L 730 345 C 610 345, 530 265, 450 265 C 370 265, 290 345, 170 345 Z" fill="url(#throatGlow)" />
+
+    <!-- Traversal Streams (Matter & Tensors Accelerated Through Throat) -->
+    <path d="M 170 170 C 300 170, 370 205, 450 205 C 530 205, 600 170, 730 170" fill="none" stroke="#fb4934" stroke-width="2.2" class="bridge-stream" />
+    <path d="M 170 220 C 300 220, 370 220, 450 220 C 530 220, 600 220, 730 220" fill="none" stroke="#fb4934" stroke-width="1.6" class="bridge-stream" opacity="0.85" />
+    <path d="M 170 270 C 300 270, 370 235, 450 235 C 530 235, 600 270, 730 270" fill="none" stroke="#fb4934" stroke-width="2.2" class="bridge-stream" />
+
+    <!-- Counter Stream / Hawking Radiation & Vacuum Fluctuations -->
+    <path d="M 730 190 C 600 190, 530 215, 450 215 C 370 215, 300 190, 170 190" fill="none" stroke="#9d0006" stroke-width="1.4" class="bridge-stream-rev" opacity="0.75" />
+    <path d="M 730 250 C 600 250, 530 225, 450 225 C 370 225, 300 250, 170 250" fill="none" stroke="#9d0006" stroke-width="1.4" class="bridge-stream-rev" opacity="0.75" />
+
+    <!-- Bridge Throat Narrowing Contours (Equatorial Coordinate Latitudes) -->
+    <ellipse cx="450" cy="220" rx="16" ry="45" fill="none" stroke="#fb4934" stroke-width="1.8" opacity="0.9" />
+    <ellipse cx="450" cy="220" rx="8" ry="45" fill="#141617" opacity="0.6" />
+    
+    <!-- Adjacent Latitudes -->
+    <ellipse cx="370" cy="220" rx="20" ry="58" fill="none" stroke="#cc241d" stroke-width="1" stroke-dasharray="6 4" opacity="0.6" />
+    <ellipse cx="530" cy="220" rx="20" ry="58" fill="none" stroke="#cc241d" stroke-width="1" stroke-dasharray="6 4" opacity="0.6" />
+  </g>
+
+  <!-- ==================== EVENT HORIZON SINGULARITY RINGS ==================== -->
+  <!-- Left Mouth Horizon Ring -->
+  <ellipse cx="170" cy="220" rx="38" ry="125" fill="#141617" stroke="#cc241d" stroke-width="2" />
+  <ellipse cx="170" cy="220" rx="28" ry="118" fill="#141617" stroke="#fb4934" stroke-width="1" opacity="0.75" />
+
+  <!-- Right Mouth Horizon Ring -->
+  <ellipse cx="730" cy="220" rx="38" ry="125" fill="#141617" stroke="#cc241d" stroke-width="2" />
+  <ellipse cx="730" cy="220" rx="28" ry="118" fill="#141617" stroke="#fb4934" stroke-width="1" opacity="0.75" />
+
+  <!-- ==================== TELEMETRY OVERLAY ==================== -->
+  <g class="mono" font-size="11" fill="#cc241d">
+    <!-- Top System Header -->
+    <text x="36" y="38" font-size="13" font-weight="bold" fill="#fb4934">sginit<tspan fill="#3c3836"> // </tspan><tspan fill="#cc241d" font-weight="normal">kernel init [PID 1]</tspan></text>
+    <text x="36" y="58" fill="#3c3836">[  BRIDGE  ] <tspan fill="#cc241d">EINSTEIN-ROSEN MANIFOLD STABILIZED</tspan></text>
+
+    <!-- Mouth Identifier Labels -->
+    <text x="170" y="385" text-anchor="middle" fill="#3c3836">MOUTH_ALPHA <tspan fill="#fb4934">(UNIVERSE 1)</tspan></text>
+    <text x="450" y="295" text-anchor="middle" font-size="10" fill="#9d0006">THROAT: r = 2GM / c²</text>
+    <text x="730" y="385" text-anchor="middle" fill="#3c3836">MOUTH_OMEGA <tspan fill="#fb4934">(UNIVERSE 2)</tspan></text>
+
+    <!-- Bottom Telemetry Metrics -->
+    <text x="36" y="415" fill="#3c3836">ds² = -(1 - 2M/r)dt² + (1 - 2M/r)⁻¹dr² + r²dΩ²</text>
+    <text x="864" y="415" text-anchor="end" fill="#fb4934">TOPOLOGY: TRAVERSABLE</text>
+  </g>
+</svg>
